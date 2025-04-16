@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Colmado</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 5px;
+            margin: 5px;
+        }
+        button {
+            padding: 6px 12px;
+        }
+  </style>
+</head>
+<body>
+    <h2>Registro de Inventario - Colmado</h2>
+
+    <form id="formulario">
+        <input type="text" id="nombre" placeholder="Nombre del artículo" required>
+        <input type="number" id="cantidad" placeholder="Cantidad" required>
+        <input type="number" id="precio" placeholder="Precio unitario" step="0.01" required>
+        <button type="submit">Agregar al Inventario</button>
+    </form>
+
+    <table id="tabla-inventario">
+    <thead>
+        <tr>
+            <th>Artículo</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Las filas del inventario aparecerán aquí -->
+    </tbody>
+    </table>
+
+    <script>
+        const formulario = document.getElementById('formulario');
+        const tabla = document.getElementById('tabla-inventario').getElementsByTagName('tbody')[0];
+
+        formulario.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const cantidad = document.getElementById('cantidad').value;
+            const precio = document.getElementById('precio').value;
+
+            const fila = tabla.insertRow();
+
+            fila.innerHTML = `
+                <td>${nombre}</td>
+                <td>${cantidad}</td>
+                <td>$${parseFloat(precio).toFixed(2)}</td>
+            `;
+
+            formulario.reset();
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventario de Colmado</title>
+  
+</head>
+<body>
+
+</body>
+</html>
